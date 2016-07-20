@@ -1,0 +1,38 @@
+{
+  "name": "react-todo-app",
+  "version": "1.0.0",
+  "description": "react todo application with electron",
+  "main": "main.js",
+  "scripts": {
+    "start": "./node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron",
+    "watch": "./node_modules/.bin/webpack-dev-server",
+    "electron-rebuild": "./node_modules/.bin/electron-rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janeefongg/react-todo-app.git"
+  },
+  "author": "jane fong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janeefongg/react-todo-app/issues"
+  },
+  "homepage": "https://github.com/janeefongg/react-todo-app#readme",
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.11.4",
+    "css-loader": "^0.23.1",
+    "electron-packager": "^7.3.0",
+    "electron-rebuild": "^1.1.5",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "node-libs-browser": "^1.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.2.7",
+    "react": "^15.2.1"
+  }
+}
