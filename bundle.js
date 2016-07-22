@@ -61,17 +61,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.querySelector('.container'));
-	//
-	// import React from 'react';
-	// import ReactDOM from 'react-dom';
-	//
-	// const createStoreWithMiddleware = applyMiddleware()(createStore);
-	//
-	// ReactDOM.render(
-	//   <Provider store={createStoreWithMiddleware(reducers)}>
-	//     <App />
-	//   </Provider>
-	//   , document.querySelector('.container'));
 
 /***/ },
 /* 1 */

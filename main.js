@@ -1,8 +1,14 @@
-const electron = require('electron');
+'use strict'
+var electron = require('electron');
 // Module to control application life.
-const {app} = electron;
+var {app} = electron;
 // Module to create native browser window.
-const {BrowserWindow} = electron;
+var {BrowserWindow} = electron;
+var express = require('express');
+var application = express();
+var db = require('./db');
+
+application.listen(8000);
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
