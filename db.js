@@ -6,12 +6,12 @@
 //
 // });
 
-var mongoose = require('mongoose');
-var timestamp = require('mongoose-times');
+const mongoose = require('mongoose');
+const timestamp = require('mongoose-times');
 
-var dbURL = 'mongodb://localhost:27017/TasksDb';
+const dbURL = 'mongodb://localhost:27017/TasksDb';
 
-var TaskSchema = mongoose.Schema({
+let TaskSchema = mongoose.Schema({
   title: String,
   body: String
 });
@@ -22,7 +22,7 @@ mongoose.model('Tasks', TaskSchema);
 
 mongoose.connect(dbURL);
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {

@@ -1,12 +1,12 @@
 'use strict'
-var electron = require('electron');
+const electron = require('electron');
 // Module to control application life.
-var {app} = electron;
+const {app} = electron;
 // Module to create native browser window.
-var {BrowserWindow} = electron;
-var express = require('express');
-var application = express();
-var db = require('./db');
+const {BrowserWindow} = electron;
+const express = require('express');
+const application = express();
+const db = require('./db');
 
 application.listen(8000);
 

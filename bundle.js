@@ -28218,6 +28218,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _tasks_index = __webpack_require__(257);
+
+	var _tasks_index2 = _interopRequireDefault(_tasks_index);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28241,7 +28245,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        'Testing'
+	        'React To-Do App',
+	        _react2.default.createElement(_tasks_index2.default, null)
 	      );
 	    }
 	  }]);
