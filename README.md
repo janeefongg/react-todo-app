@@ -4,3 +4,5 @@
 - Draw application structure
 - Create endpoints
 - Create db schema
+- Read Electron.js docs
+- SASS
