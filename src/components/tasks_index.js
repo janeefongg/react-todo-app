@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class TasksIndex extends Component {
-  																																																																						render() {
-    																																																																						return (
-      <div>
-        Tasks Index - Test Root Route
-      </div>
-    );
-  }
-}
+const TasksIndex = () => (
+  <div>
+    Tasks Index - Test Root Route
+  </div>
+);
+
+export default TasksIndex;
