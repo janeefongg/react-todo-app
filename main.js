@@ -1,19 +1,15 @@
 'use strict'
 
 const electron = require('electron');
-// Module to control application life.
 const {app} = electron;
-// Module to create native browser window.
 const {BrowserWindow} = electron;
 const express = require('express');
 const application = express();
 const db = require('./db');
-// const sass = require('node-sass-middleware');
 
+const tasksRoute = require('./api/routes/tasks');
 
 application.listen(8000);
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 
 let win;
 
@@ -23,11 +19,10 @@ function createWindow() {
 
   // and load the index.html of the app.
   win.loadURL(`file://${__dirname}/index.html`);
-
-  // Open the DevTools.
   win.webContents.openDevTools();
-  // console.log('dirname ', __dirname)
-  // application.use(sass({ src: path.join(__dirname, 'assets'), dest: path.join(__dirname, 'assets') }));
+
+  // api routing
+  application.use('/api/tasks_new', tasksRoute);
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -59,6 +54,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.

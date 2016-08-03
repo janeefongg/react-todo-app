@@ -28202,12 +28202,17 @@
 
 	var _tasks_index2 = _interopRequireDefault(_tasks_index);
 
+	var _tasks_new = __webpack_require__(295);
+
+	var _tasks_new2 = _interopRequireDefault(_tasks_new);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Route,
 	  { path: '/', component: _app2.default },
-	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _tasks_index2.default })
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _tasks_index2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/new', component: _tasks_new2.default })
 	);
 
 /***/ },
@@ -28255,13 +28260,21 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(195);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var TasksIndex = function TasksIndex() {
 	  return _react2.default.createElement(
 	    'div',
 	    null,
-	    'Tasks Index - Test Root Route'
+	    'Tasks Index - Test Root Route',
+	    _react2.default.createElement('br', null),
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: '/new' },
+	      'Insert New Task'
+	    )
 	  );
 	};
 
@@ -30493,6 +30506,35 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var TasksNew = function TasksNew() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    'PENDING - INSERT FORM'
+	  );
+	};
+
+	exports.default = TasksNew;
 
 /***/ }
 /******/ ]);

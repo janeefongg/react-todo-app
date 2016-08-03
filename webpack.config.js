@@ -2,7 +2,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 // require("./assets/styles.scss");
 
 module.exports = {
-  entry: ['./src/index.js', './assets/styles.scss'],
+  entry: ['./src/index.js', './assets/scss/styles.scss'],
   output: {
     path: __dirname,
     publicPath: '/',
@@ -33,6 +33,6 @@ module.exports = {
     extensions: [ '', '.js', '.es6', '.jsx', '.css' ]
   },
   plugins: [
-    new ExtractTextPlugin("/assets/styles.css")
+    new ExtractTextPlugin("/assets/css/styles.css")
   ]
 }
