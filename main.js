@@ -8,11 +8,12 @@ const {BrowserWindow} = electron;
 const express = require('express');
 const application = express();
 const db = require('./db');
+// const sass = require('node-sass-middleware');
+
 
 application.listen(8000);
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-
 
 let win;
 
@@ -25,7 +26,8 @@ function createWindow() {
 
   // Open the DevTools.
   win.webContents.openDevTools();
-  application.use(sass({ src: path.join(__dirname, 'assets'), dest: path.join(__dirname, 'assets') }));
+  // console.log('dirname ', __dirname)
+  // application.use(sass({ src: path.join(__dirname, 'assets'), dest: path.join(__dirname, 'assets') }));
 
   // Emitted when the window is closed.
   win.on('closed', () => {
