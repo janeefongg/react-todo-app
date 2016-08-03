@@ -10,9 +10,10 @@ const application = express();
 const db = require('./db');
 
 application.listen(8000);
-
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
+
+
 let win;
 
 function createWindow() {
@@ -24,6 +25,7 @@ function createWindow() {
 
   // Open the DevTools.
   win.webContents.openDevTools();
+  application.use(sass({ src: path.join(__dirname, 'assets'), dest: path.join(__dirname, 'assets') }));
 
   // Emitted when the window is closed.
   win.on('closed', () => {
