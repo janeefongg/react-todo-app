@@ -1,12 +1,26 @@
-import React from 'react';
-import TasksIndex from './tasks_index';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 
-const App = () => (
-  <div>
-    React To-Do App
-    <TasksIndex />
-  </div>
-);
+// import TasksIndex from './tasks_index';
+
+// const App = () => (
+//   <div>
+//     React To-Do App
+//     {this.props.children}
+//   </div>
+// );
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        Tasks
+        {this.props.children}
+        {window.location.href}
+      </div>
+    );
+  }
+}
 
 
-export default App;
+// export default App;

@@ -7,7 +7,7 @@ const express = require('express');
 const application = express();
 const db = require('./db');
 
-const tasksRoute = require('./api/routes/tasks');
+// const tasksRoute = require('./api/routes/tasks');
 
 application.listen(8000);
 
@@ -22,7 +22,7 @@ function createWindow() {
   win.webContents.openDevTools();
 
   // api routing
-  application.use('/api/tasks_new', tasksRoute);
+  // application.use('/api/tasks_new', tasksRoute);
 
   // Emitted when the window is closed.
   win.on('closed', () => {
