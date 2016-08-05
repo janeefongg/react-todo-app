@@ -9,6 +9,7 @@ const db = require('./db');
 const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const tasksRoute = require('./api/routes/tasks');
 
@@ -32,6 +33,7 @@ function createWindow() {
 
   application.use(bodyParser.json());
   application.use(bodyParser.urlencoded({ extended: true }));
+  application.use(cors());
   application.use(express.static(path.join(__dirname, '/')));
 
   application.get('/', function(req, res) {

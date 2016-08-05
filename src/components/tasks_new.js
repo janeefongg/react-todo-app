@@ -4,7 +4,7 @@ import React from 'react';
 import TasksForm from './tasks_form';
 
 
-//controller view
+// controller view
 
 const TasksNew = () => (
   <div>
