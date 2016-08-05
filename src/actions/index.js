@@ -3,7 +3,7 @@ import axios from 'axios';
 export const FETCH_TASKS = 'FETCH_TASKS';
 
 export function fetchTasks() {
-  const request = axios.get('/');
+  const request = axios.get('api/tasks');
   return {
     type: FETCH_TASKS,
     payload: request,

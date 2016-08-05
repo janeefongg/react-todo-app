@@ -8,10 +8,6 @@ import promise from 'redux-promise';
 
 import reducers from './reducers';
 
-import App from './components/app';
-import TasksIndex from './components/tasks_index';
-import TasksNew from './components/tasks_new';
-
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 // const history = syncHistoryWithStore(hashHistory, store);
 

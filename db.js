@@ -8,3 +8,6 @@ client.on('error', function (err) {
 client.on('connect', function () {
   console.log('Database connection established!');
 });
+
+
+module.exports = client;

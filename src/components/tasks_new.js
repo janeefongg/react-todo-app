@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { reduxForm } from 'redux-form';
+
 
 const TasksNew = () => (
   <div>
     PENDING - INSERT FORM
-    <Link to="/">Back to index</Link>
   </div>
 );
 
