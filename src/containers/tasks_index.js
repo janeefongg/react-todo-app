@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import { fetchTasks } from '../actions/index';
 
@@ -19,8 +18,5 @@ class TasksIndex extends Component {
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTasks }, dispatch);
-}
 
-export default connect(null, mapDispatchToProps)(TasksIndex);
+export default connect(null, { fetchTasks })(TasksIndex);

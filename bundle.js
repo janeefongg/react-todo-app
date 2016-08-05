@@ -28339,8 +28339,6 @@
 
 	var _reactRedux = __webpack_require__(173);
 
-	var _redux = __webpack_require__(180);
-
 	var _index = __webpack_require__(260);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -28380,11 +28378,7 @@
 	  return TasksIndex;
 	}(_react.Component);
 
-	function mapDispatchToProps(dispatch) {
-	  return (0, _redux.bindActionCreators)({ fetchTasks: _index.fetchTasks }, dispatch);
-	}
-
-	exports.default = (0, _reactRedux.connect)(null, mapDispatchToProps)(TasksIndex);
+	exports.default = (0, _reactRedux.connect)(null, { fetchTasks: _index.fetchTasks })(TasksIndex);
 
 /***/ },
 /* 260 */
