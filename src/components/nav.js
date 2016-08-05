@@ -8,6 +8,6 @@ const Nav = () => (
       <li><Link to="new">Create New Task</Link></li>
     </ul>
   </div>
-)
+);
 
 export default Nav;

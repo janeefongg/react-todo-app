@@ -48,7 +48,7 @@ function createWindow() {
 
   server.on('listening', onListening);
 
-  application.use('/api/tasks_new', tasksRoute);
+  application.use('/api/tasks', tasksRoute);
 
   win.on('closed', () => {
     win = null;

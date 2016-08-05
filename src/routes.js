@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
-import TasksIndex from './components/tasks_index';
+import TasksIndex from './containers/tasks_index';
 import TasksNew from './components/tasks_new';
 
 export default (
