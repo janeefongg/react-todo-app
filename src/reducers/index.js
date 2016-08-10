@@ -5,7 +5,7 @@ import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
   tasks: TasksReducer,
-  form: formReducer
+  form: formReducer,
 });
 
 export default rootReducer;

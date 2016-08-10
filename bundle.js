@@ -28410,7 +28410,7 @@
 	    type: FETCH_TASKS,
 	    payload: request
 	  };
-	};
+	}
 
 	function createTask(props) {
 	  console.log('inside', props);
@@ -28419,7 +28419,7 @@
 	    type: CREATE_TASK,
 	    payload: request
 	  };
-	};
+	}
 
 /***/ },
 /* 261 */

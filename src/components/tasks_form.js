@@ -5,9 +5,10 @@ import { createTask } from '../actions/index';
 
 class TasksForm extends Component {
   constructor(props) {
+    super(props);
     this.state = {
       id: 1
-    }
+    };
   }
 
   postTask(props) {
@@ -21,15 +22,15 @@ class TasksForm extends Component {
       <form onSubmit={handleSubmit(() => this.postTask(this.props))}>
         <h3>Create A New Task</h3>
         <div>
-          <label>Name</label><br/>
+          <label>Name</label><br />
           <input type="text" placeholder="Name of task" {...name} />
         </div>
         <div>
-          <label>Details</label><br/>
+          <label>Details</label><br />
           <textarea placeholder="Enter details" {...content} />
         </div>
         <div>
-          <label>Due</label><br/>
+          <label>Due</label><br />
           <input type="date" placeholder="Enter details" {...due} />
         </div>
         <input type="submit" />
@@ -44,13 +45,13 @@ function mapStateToProps() {
     initialValue: {
       name: '',
       content: '',
-      due: ''
-    }
-  }
-};
+      due: '',
+    },
+  };
+}
 
 
 export default reduxForm({
   form: 'TasksNewForm',
-  fields: ['name', 'content', 'due']
+  fields: ['name', 'content', 'due'],
 }, null, { createTask })(TasksForm);

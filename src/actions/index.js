@@ -9,16 +9,16 @@ export function fetchTasks() {
   const request = axios.get(`${ROOT_URL}/api/tasks`);
   return {
     type: FETCH_TASKS,
-    payload: request
+    payload: request,
   };
-};
+}
 
 export function createTask(props) {
-  console.log('inside', props)
+  console.log('inside', props);
   const request = axios.post(`${ROOT_URL}/api/tasks`, props);
   return {
     type: CREATE_TASK,
-    payload: request
+    payload: request,
   };
-};
+}
 
