@@ -9,7 +9,7 @@ import db from './db';
 
 /* eslint-disable no-console */
 
-const port = 8080;
+const port = 8000;
 const app = express();
 const compiler = webpack(config);
 
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/')));
-
+app.use('/api/tasks', tasksRoute);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,

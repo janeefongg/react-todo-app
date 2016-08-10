@@ -6,19 +6,28 @@ export const CREATE_TASK = 'POST_TASK';
 const ROOT_URL = 'http://localhost:8000';
 
 export function fetchTasks() {
-  const request = axios.get(`${ROOT_URL}/api/tasks`);
-  return {
-    type: FETCH_TASKS,
-    payload: request,
+  console.log('inside fetch')
+
+  return function(dispatch) {
+    axios.get(`${ROOT_URL}/api/tasks`)
+      .then(function(response) {
+        dispatch({ type: FETCH_TASKS, payload: response.data });
+      })
   };
 }
 
 export function createTask(props) {
-  console.log('inside', props);
-  const request = axios.post(`${ROOT_URL}/api/tasks`, props);
-  return {
-    type: CREATE_TASK,
-    payload: request,
+  const params = {
+    name: props.fields.name.value,
+    content: props.fields.content.value,
+    due: props.fields.due.value
   };
+
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/api/tasks`, params)
+      .then(function(response) {
+        dispatch({ type: CREATE_TASK, payload: response.data });
+      })
+  }
 }
 

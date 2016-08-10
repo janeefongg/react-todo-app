@@ -31,10 +31,10 @@ export default {
       include: path.join(__dirname, 'src'),
       loaders: [
         'babel'
-        ],
-      query: {
-        presets: [ 'es2015', 'react', 'stage-1' ]
-      }
+        ]
+      // query: {
+      //   presets: [ 'es2015', 'react', 'stage-1' ]
+      // }
 
     },
       {
