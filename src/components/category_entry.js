@@ -9,5 +9,4 @@ const CategoryEntry = ({item}) => {
   )
 }
 
-
 export default CategoryEntry;

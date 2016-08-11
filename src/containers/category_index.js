@@ -4,8 +4,16 @@ import { connect } from 'react-redux';
 import { fetchCategories } from '../actions/index';
 
 import CategoryList from '../components/category_list';
+import CategoryCurrent from '../components/category_current';
 
 class CategoryIndex extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      current: []
+    }
+  }
 
   componentWillMount() {
     console.log('time to call an action creator!')
@@ -17,15 +25,19 @@ class CategoryIndex extends Component {
     console.log('this is props categories', this.props.categories)
     return (
       <div>
-        Tasks Index - Test Root Route Test
-        <CategoryList categories={this.props.categories} />
+        <div>
+          Tasks Index - Test Root Route Test
+          <CategoryList categories={this.props.categories} />
+        </div>
+        <div>
+          <CategoryCurrent current={this.state.current} />
+        </div>
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-  // console.log('this is state', state.tasks.all);
   return {
     categories: state.categories.allCategories
   }

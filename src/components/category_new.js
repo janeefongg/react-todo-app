@@ -6,7 +6,7 @@ import CategoryForm from './category_form';
 const CategoryNew = () => {
   return (
     <div>
-      <CategoryForm/>
+      <CategoryForm />
     </div>
   )
 }
