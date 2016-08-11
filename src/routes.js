@@ -2,12 +2,12 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
-import TasksIndex from './containers/tasks_index';
-import TasksNew from './components/tasks_new';
+import CategoryIndex from './containers/category_index';
+import CategoryNew from './components/category_new';
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute component={TasksIndex} />
-    <Route path="/new" component={TasksNew} />
+    <IndexRoute component={CategoryIndex} />
+    <Route path="/new" component={CategoryNew} />
   </Route>
 );

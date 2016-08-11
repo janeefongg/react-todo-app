@@ -14,14 +14,14 @@ const app = express();
 const compiler = webpack(config);
 
 
-const tasksRoute = require('./api/routes/tasks');
+const categoriesRoute = require('./api/routes/categories');
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '/')));
-app.use('/api/tasks', tasksRoute);
+app.use('/api/categories', categoriesRoute);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,

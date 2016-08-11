@@ -1,32 +1,31 @@
 import axios from 'axios';
 
-export const FETCH_TASKS = 'FETCH_TASKS';
-export const CREATE_TASK = 'POST_TASK';
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const POST_CATEGORY = 'POST_CATEGORIES';
 
 const ROOT_URL = 'http://localhost:8000';
 
-export function fetchTasks() {
+export function fetchCategories() {
   console.log('inside fetch')
 
   return function(dispatch) {
-    axios.get(`${ROOT_URL}/api/tasks`)
+    axios.get(`${ROOT_URL}/api/categories`)
       .then(function(response) {
-        dispatch({ type: FETCH_TASKS, payload: response.data });
+        console.log('this is response in actions fetch', response);
+        dispatch({ type: FETCH_CATEGORIES, payload: response.data });
       })
   };
 }
 
-export function createTask(props) {
+export function postCategory(props) {
   const params = {
-    name: props.fields.name.value,
-    content: props.fields.content.value,
-    due: props.fields.due.value
+    category: props.fields.category.value,
   };
 
   return function(dispatch) {
-    axios.post(`${ROOT_URL}/api/tasks`, params)
+    axios.post(`${ROOT_URL}/api/categories`, params)
       .then(function(response) {
-        dispatch({ type: CREATE_TASK, payload: response.data });
+        dispatch({ type: POST_CATEGORY, payload: response.data });
       })
   }
 }

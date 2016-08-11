@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import TasksReducer from './reducer_tasks';
+import CategoryReducer from './reducer_tasks';
 
 import { reducer as formReducer } from 'redux-form';
 
 const rootReducer = combineReducers({
-  tasks: TasksReducer,
+  categories: CategoryReducer,
   form: formReducer,
 });
 
