@@ -1,5 +1,5 @@
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
+// import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import path from 'path';
 
 export default {
@@ -9,7 +9,8 @@ export default {
   entry: [
     'webpack-hot-middleware/client?reload=true',
     './src/index',
-    './assets/scss/styles.scss'],
+    './assets/scss/styles.scss'
+    ],
   target: 'web',
   output: {
     path: __dirname + '/dist',
@@ -19,11 +20,6 @@ export default {
   devServer: {
     contentBase: './src'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new ExtractTextPlugin("/assets/css/styles.css")
-  ],
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -39,11 +35,23 @@ export default {
     },
       {
         test: /\.scss$/,
-        include: /assets/,
-        loader: ExtractTextPlugin.extract("style", "css!sass")
+        // include: /assets/,
+        // loader: ExtractTextPlugin.extract("css!sass")
+        loader: 'style!css!sass'
+        // loaders: [
+        //   'style',
+        //   'css',
+        //   'sass'
+        // ]
       }]
   },
   resolve: {
-    extensions: [ '', '.js', '.es6', '.jsx', '.css' ]
-  }
+    extensions: [ '', '.js', '.es6', '.jsx', '.css', '.scss' ]
+  },
+  plugins: [
+    // new ExtractTextPlugin("/dist/styles.css"),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+
+  ]
 };

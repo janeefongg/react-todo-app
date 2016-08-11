@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CategoryCurrent = () => (
-  <div>Category List</div>
+  <div className="task-container">Category List</div>
 );
 
 export default CategoryCurrent;
