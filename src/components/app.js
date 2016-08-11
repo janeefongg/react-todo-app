@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Modal from 'react-modal';
 
 import Nav from './nav';
@@ -16,6 +16,11 @@ export default class App extends Component {
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
+
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
   openModal() {
     this.setState({modalIsOpen: true});
   }
@@ -26,6 +31,7 @@ export default class App extends Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
+    this.context.refresh;
   }
 
   render() {
@@ -42,10 +48,8 @@ export default class App extends Component {
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.closeModal}
             >
-
-            <h2 ref="subtitle">Hello</h2>
             <button onClick={this.closeModal}>close</button>
-            <CategoryForm />
+            <CategoryForm closeModal={this.closeModal} />
           </Modal>
         </div>
       </div>

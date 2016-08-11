@@ -15,9 +15,14 @@ class CategoryIndex extends Component {
     }
   }
 
+
   componentWillMount() {
     console.log('time to call an action creator!')
     console.log(this.props.fetchCategories)
+    this.props.fetchCategories();
+  }
+
+  componentWillReceiveProps() {
     this.props.fetchCategories();
   }
 
