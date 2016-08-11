@@ -5,6 +5,19 @@ body {
   color: $primary-color;
 }
 
+.container {
+  clear: both
+}
+
+.category-container {
+  //display: inline-block;
+  float: left;
+  width: 50%;
+}
+
 .task-container {
   background-color: $task-bg-color;
+  width: 50%;
+  float: right;
+  //display: inline-block
 }

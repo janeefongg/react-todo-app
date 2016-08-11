@@ -30,8 +30,7 @@ class CategoryIndex extends Component {
     console.log('this is props categories', this.props.categories)
     return (
       <div>
-        <div>
-          Tasks Index - Test Root Route Test
+        <div className="category-container">
           <CategoryList categories={this.props.categories} />
         </div>
         <div>

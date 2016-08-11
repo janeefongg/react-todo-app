@@ -39,8 +39,7 @@ export default class App extends Component {
       <div>
         Tasks
         <Nav />
-        {this.props.children}
-        <br />
+
         <div>
           <button onClick={this.openModal}>Open Modal</button>
           <Modal
@@ -52,6 +51,8 @@ export default class App extends Component {
             <CategoryForm closeModal={this.closeModal} />
           </Modal>
         </div>
+        {this.props.children}
+        <br />
       </div>
     );
   }
