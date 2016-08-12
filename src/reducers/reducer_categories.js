@@ -1,13 +1,13 @@
-import { FETCH_TASKS } from '../actions/index';
+import { FETCH_CATEGORIES, POST_CATEGORY } from '../actions/index';
 
-const INITIAL_STATE = { allTasks: [] };
+const INITIAL_STATE = { allCategories: [] };
 
 export default function (state = INITIAL_STATE, action) {
   console.log('this is action', action.payload);
   switch (action.type) {
-    case FETCH_TASKS:
+    case FETCH_CATEGORIES:
       console.log('inside reducer');
-      return { ...state, allTasks: action.payload };
+      return { ...state, allCategories: action.payload };
     default:
       return state;
   }

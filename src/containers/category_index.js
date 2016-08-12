@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCategories } from '../actions/index';
+import { fetchCategories, fetchTasks } from '../actions/index';
 
 import CategoryList from '../components/category_list';
 import CategoryCurrent from '../components/category_current';
@@ -11,7 +11,7 @@ class CategoryIndex extends Component {
     super(props);
 
     this.state = {
-      current: []
+      current: this.props.tasks
     }
 
     this.selectCategory = this.selectCategory.bind(this);
@@ -20,7 +20,6 @@ class CategoryIndex extends Component {
 
   componentWillMount() {
     console.log('time to call an action creator!')
-    console.log(this.props.fetchCategories)
     this.props.fetchCategories();
   }
 
@@ -30,19 +29,20 @@ class CategoryIndex extends Component {
 
   selectCategory(category) {
     console.log('this is category', category);
+    this.props.fetchTasks(category);
     // this.setState({current: category});
   }
 
 
   render() {
-    console.log('this is props categories', this.props.categories)
+    console.log('this is state tasks', this.state.current)
     return (
       <div>
         <div className="category-container">
           <CategoryList selectCategory={this.selectCategory} categories={this.props.categories} />
         </div>
         <div>
-          <CategoryCurrent current={this.state.current} />
+          <CategoryCurrent tasks={this.props.tasks} />
         </div>
       </div>
     )
@@ -50,9 +50,11 @@ class CategoryIndex extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('this is staet inside category index', state);
   return {
-    categories: state.categories.allCategories
+    categories: state.categories.allCategories,
+    tasks: state.tasks.allTasks
   }
 }
 
-export default connect(mapStateToProps, { fetchCategories })(CategoryIndex);
+export default connect(mapStateToProps, { fetchCategories, fetchTasks })(CategoryIndex);
