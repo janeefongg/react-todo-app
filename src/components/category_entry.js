@@ -1,9 +1,9 @@
 import React from 'react';
 
-const CategoryEntry = ({item}) => {
+const CategoryEntry = ({item, select}) => {
 
   return (
-    <div>
+    <div onClick={() => select(item)}>
       <h1>{item}</h1>
     </div>
   )

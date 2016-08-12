@@ -2,10 +2,10 @@ import React from 'react';
 
 import CategoryEntry from './category_entry';
 
-const CategoryList = ({categories}) => {
+const CategoryList = ({categories, selectCategory}) => {
   console.log('this is task', categories);
   const categoriesArr = categories.map((category, index) => {
-    return <CategoryEntry key={index} item={category} />
+    return <CategoryEntry key={index} select={selectCategory} item={category} />
   });
 
   return (

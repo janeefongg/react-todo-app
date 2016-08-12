@@ -13,6 +13,8 @@ class CategoryIndex extends Component {
     this.state = {
       current: []
     }
+
+    this.selectCategory = this.selectCategory.bind(this);
   }
 
 
@@ -26,12 +28,18 @@ class CategoryIndex extends Component {
     this.props.fetchCategories();
   }
 
+  selectCategory(category) {
+    console.log('this is category', category);
+    // this.setState({current: category});
+  }
+
+
   render() {
     console.log('this is props categories', this.props.categories)
     return (
       <div>
         <div className="category-container">
-          <CategoryList categories={this.props.categories} />
+          <CategoryList selectCategory={this.selectCategory} categories={this.props.categories} />
         </div>
         <div>
           <CategoryCurrent current={this.state.current} />
