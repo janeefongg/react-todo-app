@@ -11,7 +11,8 @@ class CategoryIndex extends Component {
     super(props);
 
     this.state = {
-      current: this.props.tasks
+      current: this.props.tasks,
+      category: null
     }
 
     this.selectCategory = this.selectCategory.bind(this);
@@ -29,6 +30,7 @@ class CategoryIndex extends Component {
 
   selectCategory(category) {
     console.log('this is category', category);
+    this.setState({category: category});
     this.props.fetchTasks(category);
     // this.setState({current: category});
   }
@@ -42,7 +44,7 @@ class CategoryIndex extends Component {
           <CategoryList selectCategory={this.selectCategory} categories={this.props.categories} />
         </div>
         <div>
-          <CategoryCurrent tasks={this.props.tasks} />
+          <CategoryCurrent category={this.state.category} tasks={this.props.tasks} />
         </div>
       </div>
     )

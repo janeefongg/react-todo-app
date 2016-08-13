@@ -37,19 +37,6 @@ class CategoryForm extends Component {
   }
 }
 
-
-// function mapStateToProps() {
-//   return {
-//     initialValue: {
-//       name: '',
-//       id: '',
-//       content: '',
-//       due: ''
-//     }
-//   };
-// };
-
-
 export default reduxForm({
   form: 'CategoryNewForm',
   fields: ['category']

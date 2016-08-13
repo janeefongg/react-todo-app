@@ -3,6 +3,7 @@ import axios from 'axios';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const POST_CATEGORY = 'POST_CATEGORIES';
 export const FETCH_TASKS = 'FETCH_TASKS';
+export const POST_TASK = 'POST_TASK';
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -51,5 +52,16 @@ export function fetchTasks(category) {
 
 export function postTask(category, task) {
   console.log('inside posttask in actions');
+  const params = {
+    category: category,
+    task: task
+  };
+
+  return function(dispatch) {
+    axios.post(`${ROOT_URL}/api/tasks`, params)
+      .then(function(response) {
+        dispatch({ type: POST_TASK, payload: response.data });
+      })
+  }
 }
 
