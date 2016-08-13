@@ -2,7 +2,9 @@ import React from 'react';
 
 const TaskList = ({item}) => {
   return (
-    <p>{item}</p>
+    <div>
+      <p>{item}</p>
+    </div>
   )
 }
 

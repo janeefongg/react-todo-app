@@ -11,7 +11,12 @@ const CategoryCurrent = ({tasks}) => {
    return <TaskList key={index} item={task} />
   })
   return (
-    <div className="task-container">{taskArr}</div>
+    <div className="task-container">
+      <div>
+        <input type="text" placeholder="Add Task" />
+        {taskArr}
+      </div>
+    </div>
   )
 };
 

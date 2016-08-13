@@ -49,3 +49,7 @@ export function fetchTasks(category) {
   }
 }
 
+export function postTask(category, task) {
+  console.log('inside posttask in actions');
+}
+

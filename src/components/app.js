@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Modal from 'react-modal';
 
-import Nav from './nav';
 import CategoryForm from './category_form';
 
 export default class App extends Component {
@@ -31,15 +30,13 @@ export default class App extends Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-    this.context.refresh;
+    // this.context.refresh;
   }
 
   render() {
     return (
       <div>
         Tasks
-        <Nav />
-
         <div>
           <button onClick={this.openModal}>Create Category</button>
           <Modal
