@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-
 import { postTask, fetchTasks } from '../actions/index';
-
 import TaskEntry from './task_entry';
 
 
@@ -29,7 +27,7 @@ export default class TaskList extends Component {
     } else {
 
       const taskArr = this.props.items.map((item, index)=> {
-        if (task === '') {
+        if (item === '') {
           return;
         }
         return <TaskEntry key={index} item={item}/>

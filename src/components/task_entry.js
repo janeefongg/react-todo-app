@@ -1,7 +1,9 @@
 import React from 'react';
 
 const TaskEntry = ({item}) => (
-  <p>{item}</p>
+  <form>
+    <input type="checkbox"/>{item}
+  </form>
 )
 
 export default TaskEntry;
