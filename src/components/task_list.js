@@ -1,12 +1,67 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { reduxForm } from 'redux-form';
 
-const TaskList = ({item}) => {
-  return (
-    <div>
-      <p>{item}</p>
-    </div>
-  )
+import { postTask, fetchTasks } from '../actions/index';
+
+import TaskEntry from './task_entry';
+
+
+export default class TaskList extends Component {
+
+  constructor(props) {
+    super(props);
+
+  }
+  // return (
+  //   <div>
+  //     <p>{item}</p>
+  //   </div>
+  // )
+// }
+render() {
+  console.log('this props post', this.props.post)
+  if (!this.props.items) {
+
+    const { fields: { task }, handleSubmit } = this.props;
+
+    return (
+      <div>
+        <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
+          <input type="type" placeholder="Add Task"  {...this.props.fields.task}
+                 value={this.props.fields.task.value || ''}/>
+        </form>
+      </div>
+    )
+  } else {
+
+    const taskArr = this.props.items.map((item, index)=> {
+      if (task === '') {
+        return;
+      }
+      return <TaskEntry key={index} item={item}/>
+    });
+
+    const { fields: { task }, handleSubmit } = this.props;
+
+    return (
+      <div className="task-container">
+        <div>
+          <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
+            <input type="text" placeholder="Add Task"  {...this.props.fields.task}
+                   value={this.props.fields.task.value || ''}/>
+          </form>
+          {taskArr}
+        </div>
+      </div>
+    )
+  }
+}
 }
 
+export default reduxForm({
+  form: 'CategoryNewForm',
+  fields: ['task']
+}, null, { postTask, fetchTasks })(TaskList);
 
-export default TaskList;
+
+// export default TaskList;
