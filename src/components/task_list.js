@@ -12,50 +12,44 @@ export default class TaskList extends Component {
     super(props);
 
   }
-  // return (
-  //   <div>
-  //     <p>{item}</p>
-  //   </div>
-  // )
-// }
-render() {
-  console.log('this props post', this.props.post)
-  if (!this.props.items) {
 
-    const { fields: { task }, handleSubmit } = this.props;
+  render() {
+    if (!this.props.items) {
 
-    return (
-      <div>
-        <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
-          <input type="type" placeholder="Add Task"  {...this.props.fields.task}
-                 value={this.props.fields.task.value || ''}/>
-        </form>
-      </div>
-    )
-  } else {
+      const { fields: { task }, handleSubmit } = this.props;
 
-    const taskArr = this.props.items.map((item, index)=> {
-      if (task === '') {
-        return;
-      }
-      return <TaskEntry key={index} item={item}/>
-    });
-
-    const { fields: { task }, handleSubmit } = this.props;
-
-    return (
-      <div className="task-container">
+      return (
         <div>
           <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
-            <input type="text" placeholder="Add Task"  {...this.props.fields.task}
+            <input type="type" placeholder="Add Task"  {...this.props.fields.task}
                    value={this.props.fields.task.value || ''}/>
           </form>
-          {taskArr}
         </div>
-      </div>
-    )
+      )
+    } else {
+
+      const taskArr = this.props.items.map((item, index)=> {
+        if (task === '') {
+          return;
+        }
+        return <TaskEntry key={index} item={item}/>
+      });
+
+      const { fields: { task }, handleSubmit } = this.props;
+
+      return (
+        <div className="task-container">
+          <div>
+            <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
+              <input type="text" placeholder="Add Task"  {...this.props.fields.task}
+                     value={this.props.fields.task.value || ''}/>
+            </form>
+            {taskArr}
+          </div>
+        </div>
+      )
+    }
   }
-}
 }
 
 export default reduxForm({
@@ -63,5 +57,3 @@ export default reduxForm({
   fields: ['task']
 }, null, { postTask, fetchTasks })(TaskList);
 
-
-// export default TaskList;

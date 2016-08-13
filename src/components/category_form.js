@@ -14,9 +14,7 @@ class CategoryForm extends Component {
   };
 
   postCategory(props) {
-    console.log('this is props', props)
     this.props.postCategory(props);
-    console.log(this.context.router);
     this.context.router.push('/');
     this.props.closeModal();
 
