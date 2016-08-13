@@ -11,14 +11,17 @@ export class CategoryCurrent extends Component {
     this.postTask = this.postTask.bind(this);
   }
 
-  componentWillReceiveProps() {
-    this.props.fetchTasks();
-  }
+  // componentWillReceiveProps() {
+  //   console.log('fetching tasks in will receive props lifecycle')
+  //   this.props.fetchTasks();
+  // }
 
 
   postTask(props) {
     console.log('posting task in component', this.props.category)
     this.props.postTask(this.props.category, props.fields.task.value);
+    this.props.fetchTasks(this.props.category);
+    this.context.router.push('/');
   }
 
   render() {
