@@ -5,20 +5,19 @@ export const POST_CATEGORY = 'POST_CATEGORIES';
 export const FETCH_TASKS = 'FETCH_TASKS';
 export const POST_TASK = 'POST_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
+export const UPDATE_TASK = 'UPDATE_TASK';
 
 const ROOT_URL = 'http://localhost:8000';
 
 export function fetchCategories() {
-  console.log('inside fetch')
 
   return function(dispatch) {
     axios.get(`${ROOT_URL}/api/categories`)
       .then(function(response) {
-        console.log('this is response in actions fetch', response);
         dispatch({ type: FETCH_CATEGORIES, payload: response.data });
       })
   };
-}
+};
 
 export function postCategory(props) {
   const params = {
@@ -31,7 +30,7 @@ export function postCategory(props) {
         dispatch({ type: POST_CATEGORY, payload: response.data });
       })
   }
-}
+};
 
 export function fetchTasks(category) {
   const params = {
@@ -49,10 +48,9 @@ export function fetchTasks(category) {
         dispatch({ type: FETCH_TASKS, payload: response.data });
       })
   }
-}
+};
 
 export function postTask(category, task) {
-  console.log('inside posttask in actions');
   const params = {
     category: category,
     task: task
@@ -64,10 +62,9 @@ export function postTask(category, task) {
         dispatch({ type: POST_TASK, payload: response.data });
       })
   }
-}
+};
 
 export function deleteTask(category, task) {
-  console.log('inside delete task action');
   const params = {
     category: category,
     task: task
@@ -80,10 +77,13 @@ export function deleteTask(category, task) {
   return function(dispatch) {
     axios.delete(`${ROOT_URL}/api/tasks`, config)
       .then(function(response) {
-        console.log('response in axios delete task');
         dispatch({ type: DELETE_TASK, payload: response.data });
       })
   }
+};
 
-}
+export function updateTask(category, task, update) {
+  console.log('inside update task');
+};
+
 

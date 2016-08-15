@@ -30,7 +30,6 @@ export default class App extends Component {
 
   closeModal() {
     this.setState({modalIsOpen: false});
-    // this.context.refresh;
   }
 
   render() {

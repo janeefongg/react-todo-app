@@ -3,9 +3,7 @@ import { reduxForm } from 'redux-form';
 import { postTask, fetchTasks } from '../actions/index';
 import TaskEntry from './task_entry';
 
-
 export default class TaskList extends Component {
-
   constructor(props) {
     super(props);
 
@@ -30,7 +28,7 @@ export default class TaskList extends Component {
         if (item === '') {
           return;
         }
-        return <TaskEntry remove={this.props.delete} key={index} item={item}/>
+        return <TaskEntry update={this.props.update} remove={this.props.delete} key={index} item={item}/>
       });
 
       const { fields: { task }, handleSubmit } = this.props;
