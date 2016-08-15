@@ -1,9 +1,11 @@
 import React from 'react';
 
-const TaskEntry = ({item}) => (
-  <form>
-    <input type="checkbox"/>{item}
-  </form>
+const TaskEntry = ({item, remove}) => (
+  <div>
+    <label>
+      <input type="checkbox" onChange={() => (remove(item))}/>{item}
+    </label>
+  </div>
 )
 
 export default TaskEntry;

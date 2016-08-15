@@ -30,7 +30,7 @@ export default class TaskList extends Component {
         if (item === '') {
           return;
         }
-        return <TaskEntry key={index} item={item}/>
+        return <TaskEntry remove={this.props.delete} key={index} item={item}/>
       });
 
       const { fields: { task }, handleSubmit } = this.props;
@@ -41,8 +41,9 @@ export default class TaskList extends Component {
             <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
               <input type="text" placeholder="Add Task"  {...this.props.fields.task}
                      value={this.props.fields.task.value || ''}/>
+              {taskArr}
             </form>
-            {taskArr}
+
           </div>
         </div>
       )

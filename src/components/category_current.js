@@ -8,6 +8,7 @@ export default class CategoryCurrent extends Component {
     super(props);
 
     this.postTask = this.postTask.bind(this);
+    this.deleteTask = this.deleteTask.bind(this);
   }
 
   postTask(props) {
@@ -16,10 +17,15 @@ export default class CategoryCurrent extends Component {
     this.context.router.push('/');
   }
 
+  deleteTask(props) {
+    console.log('inside delete task category current', this.props.category, props)
+
+  }
+
   render() {
     return (
       <div>
-        <TaskList post={this.postTask} items={this.props.tasks}/>
+        <TaskList delete={this.deleteTask} post={this.postTask} items={this.props.tasks}/>
       </div>
     )
   }

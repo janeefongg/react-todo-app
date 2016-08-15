@@ -33,6 +33,10 @@ router.post('/', function(req, res) {
         success: true
       });
     });
+});
+
+router.delete('/', function(req, res) {
+  console.log('inside delete task')
 })
 
 module.exports = router;

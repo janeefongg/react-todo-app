@@ -65,3 +65,7 @@ export function postTask(category, task) {
   }
 }
 
+export function deleteTask(category, task) {
+  console.log('inside delete task action');
+}
+
