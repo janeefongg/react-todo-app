@@ -4,6 +4,7 @@ export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const POST_CATEGORY = 'POST_CATEGORIES';
 export const FETCH_TASKS = 'FETCH_TASKS';
 export const POST_TASK = 'POST_TASK';
+export const DELETE_TASK = 'DELETE_TASK';
 
 const ROOT_URL = 'http://localhost:8000';
 
@@ -67,5 +68,22 @@ export function postTask(category, task) {
 
 export function deleteTask(category, task) {
   console.log('inside delete task action');
+  const params = {
+    category: category,
+    task: task
+  };
+
+  const config = {
+    params: params
+  };
+
+  return function(dispatch) {
+    axios.delete(`${ROOT_URL}/api/tasks`, config)
+      .then(function(response) {
+        console.log('response in axios delete task');
+        dispatch({ type: DELETE_TASK, payload: response.data });
+      })
+  }
+
 }
 

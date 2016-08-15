@@ -36,7 +36,15 @@ router.post('/', function(req, res) {
 });
 
 router.delete('/', function(req, res) {
-  console.log('inside delete task')
+  console.log('inside delete task');
+  console.log(req.query.category, req.query.task)
+  db.lremAsync(req.query.category, 1, req.query.task)
+    .then(function(response) {
+      console.log('this is the response after deleting task', response);
+      res.json({
+        success: true
+      })
+    })
 })
 
 module.exports = router;
