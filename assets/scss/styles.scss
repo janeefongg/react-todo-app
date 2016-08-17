@@ -9,6 +9,11 @@ body {
   clear: both;
 }
 
+.basic-container {
+  border: 1px solid gray;
+  min-height: 100px;
+}
+
 .category-container {
   float: left;
   width: 50%;
@@ -18,4 +23,15 @@ body {
   background-color: $task-bg-color;
   width: 50%;
   float: right;
+  height: 100px;
+}
+
+//add to container after floats
+.clearfix:after {
+     visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: "";
+      clear: both;
+      height: 0;
 }

@@ -39,7 +39,7 @@ class CategoryIndex extends Component {
   render() {
     console.log('this is state tasks', this.state.current)
     return (
-      <div>
+      <div className="basic-container">
         <div className="category-container">
           <CategoryList selectCategory={this.selectCategory} categories={this.props.categories} />
         </div>

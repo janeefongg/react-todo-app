@@ -47,8 +47,9 @@ export default class App extends Component {
             <CategoryForm closeModal={this.closeModal} />
           </Modal>
         </div>
+        <div>
         {this.props.children}
-        <br />
+        </div>
       </div>
     );
   }

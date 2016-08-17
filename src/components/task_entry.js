@@ -13,7 +13,6 @@ export default class TaskEntry extends Component {
     }
 
     this.openModal = this.openModal.bind(this);
-    // this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
   }
 
@@ -47,7 +46,7 @@ export default class TaskEntry extends Component {
           onRequestClose={this.closeModal}
         >
           <button onClick={this.closeModal}>close</button>
-          <TaskUpdate update={this.props.update} closeModal={this.closeModal} />
+          <TaskUpdate update={this.props.update} closeModal={this.closeModal} item={this.props.item}/>
         </Modal>
       </div>
       )

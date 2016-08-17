@@ -11,12 +11,12 @@ class TaskUpdate extends Component {
   }
 
   componentWillMount() {
-    console.log('this is closemodal in task update', this.props.closeModal)
+    console.log('this is closemodal in task update', this.props.item)
   }
 
 
   submitUpdate(props) {
-    this.props.update(props);
+    this.props.update(props.fields.updated.value);
     this.props.closeModal();
   }
 
@@ -28,7 +28,7 @@ class TaskUpdate extends Component {
         <div>
           <label>Update Task</label><br />
           <input type="text" placeholder="Enter update"
-                 {...this.props.fields.updated} value={this.props.fields.updated.value || ''}/>
+                 {...this.props.fields.updated} value={this.props.fields.updated.value || ''} />
         </div>
         <input type="submit"/>
       </form>

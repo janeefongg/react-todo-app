@@ -84,6 +84,9 @@ export function deleteTask(category, task) {
 
 export function updateTask(category, task, update) {
   console.log('inside update task');
+  // return function(dispatch) {
+  //   axios.put('/')
+  // }
 };
 
 
