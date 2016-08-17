@@ -16,6 +16,7 @@ Task.postTask = function (category, task) {
 };
 
 Task.removeTask = function (category, task) {
+  console.log('this is removetask', category, task)
   return db.lremAsync(category, 1, task);
 };
 

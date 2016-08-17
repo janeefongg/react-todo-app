@@ -1,55 +1,46 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../../db');
-const redis = require('redis');
-// var redis = require('redis');
-import bluebird from 'bluebird';
+import express from 'express';
 import Task from '../helpers/tasks';
+const router = express.Router();
 
-bluebird.promisifyAll(redis.RedisClient.prototype);
-bluebird.promisifyAll(redis.Multi.prototype);
-
-
-router.get('/', function(req, res) {
+router.get('/', (req, res) => {
   if (!req.query.category) {
-    res.send()
+    res.send();
   } else {
     Task.getAll(req.query.category)
-      .then(function (response) {
+      .then(response => {
         res.send(response);
       });
   }
 });
 
-router.post('/', function(req, res) {
+router.post('/', (req, res) => {
   Task.postTask(req.body.category, req.body.task)
-    .then(function(response) {
+    .then(response => {
       res.json({
         success: true
       });
     });
 });
 
-router.delete('/', function(req, res) {
-  Task.removeTask(category, 1, task)
-    .then(function(response) {
+router.delete('/', (req, res) => {
+  Task.removeTask(req.query.category, req.query.task)
+    .then(response => {
       res.json({
         success: true
-      })
-    })
+      });
+    });
 });
 
-router.put('/', function(req, res) {
-  console.log('inside put req', req.body.params);
+router.put('/', (req, res) => {
   Task.getAll(req.body.params.category)
-    .then(function(response) {
+    .then(response => {
       Task.updateTask(req.body.params.category, req.body.params.task, req.body.params.update, response)
-        .then(function(result) {
+        .then(result => {
           res.json({
             success: true
           })
-        })
-    })
+        });
+    });
 });
 
 module.exports = router;
