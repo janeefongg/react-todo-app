@@ -42,7 +42,18 @@ router.delete('/', function(req, res) {
 });
 
 router.put('/', function(req, res) {
-  console.log('inside put req', req.body);
+  console.log('inside put req', req.body.params);
+  db.lrangeAsync(req.body.params.category, 0, -1)
+    .then(function(response) {
+      console.log('response', response)
+      const index = response.indexOf(req.body.params.task);
+      db.lsetAsync(req.body.params.category, index, req.body.params.update)
+        .then(function(result) {
+          res.json({
+            success: true
+          })
+        })
+    })
 })
 
 module.exports = router;

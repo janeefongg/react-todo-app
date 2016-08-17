@@ -82,11 +82,24 @@ export function deleteTask(category, task) {
   }
 };
 
-export function updateTask(category, task, update) {
-  console.log('inside update task');
-  // return function(dispatch) {
-  //   axios.put('/')
-  // }
+export function updateTask(category, update, task) {
+  console.log('inside update task', category, task, update);
+  const params = {
+    category: category,
+    task: task,
+    update: update
+  };
+
+  const config = {
+    params: params
+  };
+
+  return function(dispatch) {
+    axios.put(`${ROOT_URL}/api/tasks`, config)
+      .then(function(response) {
+        dispatch({ type: UPDATE_TASK, payload: response.data });
+      })
+  }
 };
 
 

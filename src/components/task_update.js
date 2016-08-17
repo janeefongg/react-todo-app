@@ -15,8 +15,8 @@ class TaskUpdate extends Component {
   }
 
 
-  submitUpdate(props) {
-    this.props.update(props.fields.updated.value);
+  submitUpdate(props, item) {
+    this.props.update(props.fields.updated.value, this.props.item);
     this.props.closeModal();
   }
 

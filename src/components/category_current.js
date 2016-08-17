@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TaskList from './task_list';
-import { postTask, fetchTasks, deleteTask } from '../actions/index';
+import { postTask, fetchTasks, deleteTask, updateTask } from '../actions/index';
 
 
 
@@ -24,9 +24,11 @@ export default class CategoryCurrent extends Component {
     this.props.fetchTasks(this.props.category);
   }
 
-  updateTask(update) {
-    console.log('inside update task in category current', this.props.category, props);
-    this.props.updateTask(update)
+  updateTask(update, item) {
+    console.log('inside update task in category current', this.props.category);
+    //category, task, update
+    this.props.updateTask(this.props.category, update, item);
+    this.props.fetchTasks(this.props.category);
   }
 
   render() {
@@ -39,4 +41,4 @@ export default class CategoryCurrent extends Component {
 }
 
 
-export default connect(null, { postTask, fetchTasks, deleteTask })(CategoryCurrent);
+export default connect(null, { postTask, fetchTasks, deleteTask, updateTask })(CategoryCurrent);
