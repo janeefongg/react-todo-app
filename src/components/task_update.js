@@ -26,7 +26,7 @@ class TaskUpdate extends Component {
     return (
       <form onSubmit={handleSubmit(() => this.submitUpdate(this.props))}>
         <div>
-          <label>Update Task</label><br />
+          <label>Update Task</label>
           <input type="text" placeholder="Enter update"
                  {...this.props.fields.updated} value={this.props.fields.updated.value || ''} />
         </div>

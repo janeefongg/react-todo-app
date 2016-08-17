@@ -8,6 +8,8 @@ export default function (state = INITIAL_STATE, action) {
     case FETCH_CATEGORIES:
       console.log('inside reducer');
       return { ...state, allCategories: action.payload };
+    case POST_CATEGORY:
+      return { ...state, allCategories: action.payload };
     default:
       return state;
   }
