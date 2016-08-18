@@ -7,11 +7,17 @@ body {
 
 .container {
   clear: both;
+  margin: 0 auto;
+  text-align: center;
+
 }
 
-.basic-container {
+.app-container {
   border: 1px solid gray;
+  width: 50%;
   min-height: 100px;
+  margin: 0 auto;
+  text-align: left;
 }
 
 .category-container {

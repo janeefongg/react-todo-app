@@ -25,7 +25,7 @@ export default class CategoryCurrent extends Component {
   }
 
   updateTask(update, item) {
-    console.log('inside update task in category current', this.props.category);
+    console.log('inside update task in catexgory current', this.props.category);
     //category, task, update
     this.props.updateTask(this.props.category, update, item);
     this.props.fetchTasks(this.props.category);
