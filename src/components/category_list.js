@@ -42,8 +42,8 @@ export default class CategoryList extends Component {
         <div>
           {categoriesArr}
         </div>
-        <div>
-          <button onClick={this.openModal}>Create Category</button>
+        <div className="category-form-button-container">
+          <button className="category-form-button" onClick={this.openModal}>Create Category</button>
           <Modal
             isOpen={this.state.modalIsOpen}
             onAfterOpen={this.afterOpenModal}
