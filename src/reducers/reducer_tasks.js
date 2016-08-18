@@ -1,4 +1,4 @@
-import { FETCH_TASKS } from '../actions/index';
+import { FETCH_TASKS, POST_TASK } from '../actions/index';
 
 const INITIAL_STATE = { allTasks: [] };
 

@@ -16,9 +16,10 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   Task.postTask(req.body.category, req.body.task)
     .then(response => {
-      res.json({
-        success: true
-      });
+      Task.getAll(req.query.category)
+        .then(result => {
+          res.send(result);
+        });
     });
 });
 

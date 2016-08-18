@@ -9,13 +9,8 @@ class CategoryForm extends Component {
 
   }
 
-  static contextTypes = {
-    router: PropTypes.object
-  };
-
   postCategory(props) {
     this.props.postCategory(props);
-    this.context.router.push('/');
     this.props.closeModal();
 
   }

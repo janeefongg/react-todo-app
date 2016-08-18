@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCategories, fetchTasks } from '../actions/index';
+import { fetchCategories, fetchTasks, postCategory } from '../actions/index';
 
 import CategoryList from '../components/category_list';
 import CategoryCurrent from '../components/category_current';
@@ -12,7 +12,8 @@ class CategoryIndex extends Component {
 
     this.state = {
       current: this.props.tasks,
-      category: null
+      category: null,
+      all: []
     }
 
     this.selectCategory = this.selectCategory.bind(this);
@@ -34,6 +35,7 @@ class CategoryIndex extends Component {
     this.props.fetchTasks(category);
     // this.setState({current: category});
   }
+
 
 
   render() {
@@ -59,4 +61,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchCategories, fetchTasks })(CategoryIndex);
+export default connect(mapStateToProps, { fetchCategories, fetchTasks, postCategory })(CategoryIndex);
