@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Scissors from 'react-icons/lib/ti/scissors';
+import ScissorsIcon from 'react-icons/lib/ti/scissors';
 import Modal from 'react-modal';
 
 import TaskUpdate from './task_update';
@@ -39,7 +39,7 @@ export default class TaskEntry extends Component {
         <label>
           <input type="checkbox" onChange={() => (this.props.remove(this.props.item))}/>{this.props.item}
         </label>
-        <Scissors onClick={() => this.openModal() }/>
+        <ScissorsIcon onClick={() => this.openModal() }/>
         <Modal
           isOpen={this.state.modalIsOpen}
 

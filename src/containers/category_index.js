@@ -12,8 +12,7 @@ class CategoryIndex extends Component {
 
     this.state = {
       current: this.props.tasks,
-      category: null,
-      all: []
+      category: null
     }
 
     this.selectCategory = this.selectCategory.bind(this);
@@ -21,7 +20,6 @@ class CategoryIndex extends Component {
 
 
   componentWillMount() {
-    console.log('time to call an action creator!')
     this.props.fetchCategories();
   }
 
@@ -30,16 +28,11 @@ class CategoryIndex extends Component {
   }
 
   selectCategory(category) {
-    console.log('this is category', category);
     this.setState({category: category});
     this.props.fetchTasks(category);
-    // this.setState({current: category});
   }
 
-
-
   render() {
-    console.log('this is state tasks', this.state.current)
     return (
       <div className="app-container">
         <div className="category-container">
@@ -54,7 +47,6 @@ class CategoryIndex extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('this is staet inside category index', state);
   return {
     categories: state.categories.allCategories,
     tasks: state.tasks.allTasks

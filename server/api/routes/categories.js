@@ -15,9 +15,10 @@ router.post('/', (req, res) => {
   Category.postCategory(req.body.category)
     .then(response => {
       console.log('this is the response', response);
-      res.json({
-        success: true
-      })
+      Category.getAll()
+        .then(function(response) {
+          res.send(response);
+        });
     })
 });
 
