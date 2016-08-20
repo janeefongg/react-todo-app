@@ -10,12 +10,14 @@ export default class TaskList extends Component {
   }
 
   render() {
+    console.log('this.props.items on load', this.props.item);
+
     if (this.props.items.length === 1) {
 
       const { fields: { task }, handleSubmit } = this.props;
 
       return (
-        <div>
+        <div className="task-container">
           <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
             <input type="type" placeholder="Add Task"  {...this.props.fields.task}
                    value={this.props.fields.task.value || ''}/>
@@ -23,9 +25,10 @@ export default class TaskList extends Component {
           No current tasks
         </div>
       )
-    } else if (!this.props.items) {
+    } else if (!this.props.length) {
+      console.log('no category selected');
       return (
-        <div>
+        <div className="task-container">
           Select a category to get started.
         </div>
       )

@@ -24,10 +24,6 @@ class CategoryIndex extends Component {
     this.props.fetchCategories();
   }
 
-  componentWillReceiveProps() {
-    this.props.fetchCategories();
-  }
-
   selectCategory(category) {
     this.setState({category: category});
     this.props.fetchTasks(category);
