@@ -22,4 +22,15 @@ router.post('/', (req, res) => {
     })
 });
 
+router.delete('/', (req, res) => {
+  console.log('inside delete function on server');
+  Category.deleteCategory(req.query.category)
+    .then(function(response) {
+      Category.getAll()
+        .then(function(result) {
+          res.send(result);
+        })
+    })
+})
+
 module.exports = router;

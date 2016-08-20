@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 export const POST_CATEGORY = 'POST_CATEGORIES';
+export const DELETE_CATEGORY = 'DELETE_CATEGORY';
 export const FETCH_TASKS = 'FETCH_TASKS';
 export const POST_TASK = 'POST_TASK';
 export const DELETE_TASK = 'DELETE_TASK';
@@ -101,5 +102,23 @@ export function updateTask(category, update, task) {
       })
   }
 };
+
+export function deleteCategory(category) {
+  console.log('inside delete category action');
+  const params = {
+    category: category
+  };
+
+  const config = {
+    params: params
+  };
+
+  return function(dispatch) {
+    axios.delete(`${ROOT_URL}/api/categories`, config)
+      .then(function(response) {
+        dispatch({ type: DELETE_CATEGORY, payload: response.data });
+      })
+  }
+}
 
 

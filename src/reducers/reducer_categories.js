@@ -1,4 +1,4 @@
-import { FETCH_CATEGORIES, POST_CATEGORY } from '../actions/index';
+import { FETCH_CATEGORIES, POST_CATEGORY, DELETE_CATEGORY } from '../actions/index';
 
 const INITIAL_STATE = { allCategories: [] };
 
@@ -9,6 +9,8 @@ export default function (state = INITIAL_STATE, action) {
       console.log('inside reducer');
       return { ...state, allCategories: action.payload };
     case POST_CATEGORY:
+      return { ...state, allCategories: action.payload };
+    case DELETE_CATEGORY:
       return { ...state, allCategories: action.payload };
     default:
       return state;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchCategories, fetchTasks, postCategory } from '../actions/index';
+import { fetchCategories, fetchTasks, postCategory, deleteCategory } from '../actions/index';
 
 import CategoryList from '../components/category_list';
 import CategoryCurrent from '../components/category_current';
@@ -16,6 +16,7 @@ class CategoryIndex extends Component {
     }
 
     this.selectCategory = this.selectCategory.bind(this);
+    this.removeCategory = this.removeCategory.bind(this);
   }
 
 
@@ -32,11 +33,16 @@ class CategoryIndex extends Component {
     this.props.fetchTasks(category);
   }
 
+  removeCategory(category) {
+    console.log('inside remove category in component', category);
+    this.props.deleteCategory(category);
+  }
+
   render() {
     return (
       <div className="app-container">
         <div className="category-container">
-          <CategoryList selectCategory={this.selectCategory} categories={this.props.categories} />
+          <CategoryList selectCategory={this.selectCategory} categories={this.props.categories} remove={this.removeCategory}/>
         </div>
         <div>
           <CategoryCurrent category={this.state.category} tasks={this.props.tasks} />
@@ -53,4 +59,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { fetchCategories, fetchTasks, postCategory })(CategoryIndex);
+export default connect(mapStateToProps, { fetchCategories, fetchTasks, postCategory, deleteCategory })(CategoryIndex);

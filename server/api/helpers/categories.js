@@ -15,4 +15,8 @@ Category.postCategory = (category) => {
   return db.lpushAsync(category, '');
 };
 
+Category.deleteCategory = (category) => {
+  return db.delAsync(category);
+};
+
 export default Category;
