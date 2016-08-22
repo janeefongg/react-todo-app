@@ -19,13 +19,13 @@ export default class TaskList extends Component {
       return (
         <div className="task-container">
           <form onSubmit={handleSubmit(() => this.props.post(this.props))}>
-            <input type="type" placeholder="Add Task"  {...this.props.fields.task}
+            <input type="text" placeholder="Add Task"  {...this.props.fields.task}
                    value={this.props.fields.task.value || ''}/>
           </form>
           No current tasks
         </div>
       )
-    } else if (!this.props.length) {
+    } else if (!this.props.items.length) {
       console.log('no category selected');
       return (
         <div className="task-container">
